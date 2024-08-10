@@ -36,6 +36,9 @@ func NewAliyunAckClient(ak,sk,endpoint string) (*AliyunAckClient, error) {
   config.Endpoint = tea.String(endpoint)
   result := &cs20151215.Client{}
   result, err := cs20151215.NewClient(config)
+  if err != nil {
+	return nil,err 
+  }
   return &AliyunAckClient{
 	Client: result,
   },err 
